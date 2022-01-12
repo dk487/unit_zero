@@ -22,7 +22,7 @@ vendor/bin/%: $(COMPOSER)
 	$(COMPOSER) install
 
 composer.phar:
-	wget https://getcomposer.org/download/latest-stable/composer.phar
+	curl https://getcomposer.org/download/latest-stable/composer.phar --output $@
 	chmod +x composer.phar
 
 .PHONY: install test coverage check fix
