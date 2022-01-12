@@ -9,13 +9,13 @@ install-prod:
 test: vendor/bin/phpunit phpunit.xml
 	vendor/bin/phpunit
 
-coverage: vendor/bin/phpunit phpunit.xml
+test-coverage: vendor/bin/phpunit phpunit.xml
 	XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html coverage/
 
-check: vendor/bin/php-cs-fixer
+cs-check: vendor/bin/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --diff --dry-run .
 
-fix: vendor/bin/php-cs-fixer
+cs-fix: vendor/bin/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --diff .
 
 phpunit.xml: phpunit.xml.dist
@@ -28,4 +28,4 @@ composer.phar:
 	curl https://getcomposer.org/download/latest-stable/composer.phar --output $@
 	chmod +x composer.phar
 
-.PHONY: install install-prod test coverage check fix
+.PHONY: install install-prod test test-coverage cs-check cs-fix
