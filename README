@@ -1,0 +1,9 @@
+
+docker run -it --rm -v $(pwd):/app -w /app php:8.1-cli /bin/bash
+
+apt-get update
+apt-get install -y unzip
+pecl install xdebug
+rm -rf /tmp/pear
+docker-php-ext-enable xdebug
+
