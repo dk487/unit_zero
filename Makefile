@@ -10,7 +10,7 @@ test: vendor/bin/phpunit phpunit.xml
 	vendor/bin/phpunit
 
 coverage: vendor/bin/phpunit phpunit.xml
-	vendor/bin/phpunit --coverage-html coverage/
+	XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html coverage/
 
 check: vendor/bin/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --diff --dry-run .
