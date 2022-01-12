@@ -3,6 +3,9 @@ COMPOSER ?= $(shell which composer || echo ./composer.phar)
 
 install: vendor/bin/phpunit vendor/bin/php-cs-fixer
 
+install-prod:
+	$(COMPOSER) install --no-dev
+
 test: vendor/bin/phpunit phpunit.xml
 	vendor/bin/phpunit
 
@@ -25,4 +28,4 @@ composer.phar:
 	curl https://getcomposer.org/download/latest-stable/composer.phar --output $@
 	chmod +x composer.phar
 
-.PHONY: install test coverage check fix
+.PHONY: install install-prod test coverage check fix
