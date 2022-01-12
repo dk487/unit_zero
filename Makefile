@@ -19,7 +19,7 @@ fix: vendor/bin/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --diff .
 
 phpunit.xml: phpunit.xml.dist
-	cp -i $< $@
+	cp -n $< $@
 
 vendor/bin/%: $(COMPOSER)
 	$(COMPOSER) install
